@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 
 <head>
-  <title>Sobre mim</title>
-  <link rel="stylesheet" href="sobre_mim.css"> <!-- Vincula o arquivo CSS externo -->
+  <title>Sobre mim | Eliel`s World</title>
+  <link rel="stylesheet" href="styles/sobre_mim.css"> <!-- Vincula o arquivo CSS externo -->
 
 </head>
 <style>
   body {
     margin: 0;
     padding: 0;
-    background-image: url('ubuntu/ubuntu.jpeg');
+    background-image: url('icon/ubuntu.jpeg');
     background-size: cover; /* Garante que a imagem cubra todo o corpo */
     background-position: center; /* Centraliza a imagem no corpo */
     font-family: Arial, sans-serif;
@@ -141,16 +141,16 @@
     <dock id="pagedock">
       <br>
       <!--<img src="ubuntu/home2.png">-->
-      <button id="button1_dock" class="button_dock"><img onclick="vai_para_home()" src="ubuntu/home2.png" alt="Ícone" /></button>
-      <button id="button2_dock" class="button_dock"><img onclick="vai_para_desktop()" src="ubuntu/info3.png"
+      <button id="button1_dock" class="button_dock"><img onclick="vai_para_home()" src="icon/home2.png" alt="Ícone" /></button>
+      <button id="button2_dock" class="button_dock"><img onclick="vai_para_desktop()" src="icon/info3.png"
           alt="Ícone" /></button>
-      <button id="button3_dock" class="button_dock"><img onclick="vai_para_git()" src="ubuntu/code3.png"
+      <button id="button3_dock" class="button_dock"><img onclick="vai_para_git()" src="icon/code3.png"
           alt="Ícone" /></button>
-      <button id="button4_dock" class="button_dock"><img onclick="vai_para_pad()" src="ubuntu/game2.png"
+      <button id="button4_dock" class="button_dock"><img onclick="vai_para_pad()" src="icon/game2.png"
           alt="Ícone" /></button>
-      <button id="button5_dock" class="button_dock"><img onclick="vai_para_insta()" src="ubuntu/camera.png"
+      <button id="button5_dock" class="button_dock"><img onclick="vai_para_portifolio()" src="icon/camera.png"
           alt="Ícone" /></button>
-      <button id="button6_dock" class="button_dock"><img onclick="vai_para_wpp()" src="ubuntu/wpp.png"
+      <button id="button6_dock" class="button_dock"><img onclick="vai_para_wpp()" src="icon/wpp.png"
           alt="Ícone" /></button>
 
     </dock>
@@ -162,7 +162,7 @@
         <div id="fechar">&#10005;</div> <!-- Botão de fechar (X) -->
       </div>
       <div class="terminal-body">
-        <img id="linkedin_banner" src="eliel perfil.png" alt="Descrição da Imagem">
+        <img id="linkedin_banner" src="icon/eliel perfil.png">
           
         <div id="template_corpo_terminal">
           <txt_esquerda1 id="divesq1">
@@ -178,15 +178,15 @@
           </txt_esquerda3> 
       
           <ico_1 id="divinco1">
-            <img id="itau_ico" src="itau_ico.png"> 
+            <img id="itau_ico" src="icon/itau_ico.png"> 
           </ico_1>
       
           <ico_2 id="divinco2">
-            <img id="fgv_ico" src="fgv_ico.png"> 
+            <img id="fgv_ico" src="icon/fgv_ico.png"> 
           </ico_2>
       
           <ico_3 id="divinco3">
-            <img id="ufabc_ico" src="ufabc_ico_2.png"> 
+            <img id="ufabc_ico" src="icon/ufabc_ico_2.png"> 
           </ico_3>
       
           <txt_direita1 id="divdir1">
@@ -296,6 +296,10 @@
       window.location.href = "index.html";
     }
 
+    function vai_para_portifolio() {
+      window.location.href = "portifolio_ubuntu.html";
+    }
+
     function vai_para_insta() {
        window.open("https://www.instagram.com/_elielvis_", "_blank");   
     }
@@ -307,6 +311,5 @@
     
   </script>
 
-  <script src="script2.js"></script>
 
 </body>
