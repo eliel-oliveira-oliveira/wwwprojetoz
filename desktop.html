@@ -1,20 +1,80 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botões com Áudio</title>
-    <style>
-        body {
-            background-color: rgb(33, 30, 30);
-            margin: 0;
-        }
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  		<title>eliel.dev.br</title>
+<!-- 
 
-        .button-container {
+Highway Template
+
+https://templatemo.com/tm-520-highway
+
+-->
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+ 
+        <link rel="stylesheet" href="css/templatemo-style.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+
+                    <!-- Google Fonts -->	
+            <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+            
+            <!-- Bootstrpa Icons -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+            
+            <!-- FontAwesome JS -->
+            <script defer src="assets/fontawesome/js/all.js"></script>
+
+            <!-- Theme CSS -->  
+            <link id="theme-style" rel="stylesheet" href="assets/css/risen.css">
+
+
+			<style>
+				body {
+					background-color: rgb(33, 30, 30);
+					margin: 0;
+				}
+		
+				.button-container {
+					display: grid;
+					grid-template-columns: repeat(5, 1fr);
+					gap: 10px;
+					margin: 20px;
+				}
+		
+				.button {
+					width: 100%;
+					padding: 15x;
+					height: 100px;
+					text-align: center;
+					background-color: #123617;
+					color: #fff;
+					border: none;
+					cursor: default;
+				}
+
+
+
+
+
+
+
+
+
+
+				
+	@media only screen and (max-width: 768px) {
+		.button-container {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
             margin: 20px;
         }
@@ -22,47 +82,124 @@
         .button {
             width: 100%;
             padding: 10px;
-            height: 150px;
+            height: 50px;
             text-align: center;
             background-color: #123617;
             color: #fff;
             border: none;
             cursor: default;
         }
-    </style>
-</head>
-<body>
-    <div class="button-container">
-        <button id="button1" class="button" onclick="playAudio(1)" disabled>Botão 1</button>
-        <button id="button2" class="button" onclick="playAudio(2)" disabled>Botão 2</button>
-        <button id="button3" class="button" onclick="playAudio(3)" disabled>Vazio</button>
-        <button id="button4" class="button" onclick="playAudio(4)" disabled>Vazio</button>
-        <button id="button5" class="button" onclick="playAudio(5)" disabled>Vazio</button>
-        <button id="button6" class="button" onclick="playAudio(6)" disabled>Vazio</button>
-        <button id="button7" class="button" onclick="playAudio(7)" disabled>Vazio</button>
-        <button id="button8" class="button" onclick="playAudio(8)" disabled>Vazio</button>
-        <button id="button9" class="button" onclick="playAudio(9)" disabled>Vazio</button>
-        <button id="button10" class="button" onclick="playAudio(10)" disabled>Vazio</button>
-        <button id="button11" class="button" onclick="playAudio(11)" disabled>Vazio</button>
-        <button id="button12" class="button" onclick="playAudio(12)" disabled>Vazio</button>
-        <button id="button13" class="button" onclick="playAudio(13)" disabled>Vazio</button>
-        <button id="button14" class="button" onclick="playAudio(14)" disabled>Vazio</button>
-        <button id="button15" class="button" onclick="playAudio(15)" disabled>Vazio</button>
-        <button id="button16" class="button" onclick="playAudio(16)" disabled>Vazio</button>
-        <button id="button17" class="button" onclick="playAudio(17)" disabled>Vazio</button>
-        <button id="button18" class="button" onclick="playAudio(18)" disabled>Vazio</button>
-        <button id="button19" class="button" onclick="playAudio(19)" disabled>Vazio</button>
-        <button id="button20" class="button" onclick="playAudio(20)">Parar</button>
-    </div>
-    
-    <script src="script2.js"></script>
+	}
+			</style>
+    </head>
 
-    <script>
-        // Verifica se o dispositivo é um dispositivo móvel
-        if (/Mobi|Android/i.test(navigator.userAgent)) {
-            // Redireciona para a versão mobile
-            window.location.href = 'mobile.html';
-        }
-    </script>
+<body>
+
+
+    
+
+
+    
+    <nav>
+        <div class="logo">
+            <a href="index.html">Eliel<em>Dev</em></a>
+        </div>
+        <div class="menu-icon">
+            <div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre mim</a></li>
+                    <li><a href="fotografia.html">Fotografia</a></li>
+                    <li><a href="desktop.html">PADs</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+                <div class="burger-menu">&#9776;</div>
+            </div>
+        </div>
+        
+    </nav>
+
+
+    <div class="full-screen-portfolio" id="portfolio">
+        <div class="container-fluid">
+			<br><br><br><br>
+			<div class="button-container">
+				<button id="button1" class="button" onclick="playAudio(1)" disabled>Botão 1</button>
+				<button id="button2" class="button" onclick="playAudio(2)" disabled>Botão 2</button>
+				<button id="button3" class="button" onclick="playAudio(3)" disabled>Vazio</button>
+				<button id="button4" class="button" onclick="playAudio(4)" disabled>Vazio</button>
+				<button id="button5" class="button" onclick="playAudio(5)" disabled>Vazio</button>
+				<button id="button6" class="button" onclick="playAudio(6)" disabled>Vazio</button>
+				<button id="button7" class="button" onclick="playAudio(7)" disabled>Vazio</button>
+				<button id="button8" class="button" onclick="playAudio(8)" disabled>Vazio</button>
+				<button id="button9" class="button" onclick="playAudio(9)" disabled>Vazio</button>
+				<button id="button10" class="button" onclick="playAudio(10)" disabled>Vazio</button>
+				<button id="button11" class="button" onclick="playAudio(11)" disabled>Vazio</button>
+				<button id="button12" class="button" onclick="playAudio(12)" disabled>Vazio</button>
+				<button id="button13" class="button" onclick="playAudio(13)" disabled>Vazio</button>
+				<button id="button14" class="button" onclick="playAudio(14)" disabled>Vazio</button>
+				<button id="button15" class="button" onclick="playAudio(15)" disabled>Vazio</button>
+				<button id="button16" class="button" onclick="playAudio(16)" disabled>Vazio</button>
+				<button id="button17" class="button" onclick="playAudio(17)" disabled>Vazio</button>
+				<button id="button18" class="button" onclick="playAudio(18)" disabled>Vazio</button>
+				<button id="button19" class="button" onclick="playAudio(19)" disabled>Vazio</button>
+				<button id="button20" class="button" onclick="playAudio(20)">Parar</button>
+			</div>
+	
+	</div><!--//container-->
+    </div>
+
+
+    <footer>
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <p>Copyright &copy; 2024 Eliel Oliveira 
+
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    
+
+    <section class="overlay-menu">
+      <div class="container">
+        <div class="row">
+          <div class="main-menu">
+              <ul>
+                  <li>
+                      <a href="index.html">Home</a>
+                  </li>
+                  <li>
+                      <a href="sobre.html">Sobre mim</a>
+                  </li>
+                  <li>
+                    <a href="desktop.html">PADs</a>
+                    </li>
+                    <li>
+                      <a href="fotografia.html">Fotografia</a>
+                  </li>
+                  <li>
+                      <a href="#">Contato</a>
+                  </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+    
+
+    <script src="js/main.js"></script>
+
+	<script src="script2.js"></script>
+
+    
 </body>
 </html>
