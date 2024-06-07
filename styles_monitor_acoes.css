@@ -1,0 +1,177 @@
+/* Estilo para o botão de logoff */
+.logoff-button {
+    float: right;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.logoff-button:hover {
+    background-color: #c9302c;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Corpo */
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #004085;
+    border-bottom: 2px solid #004085;
+    padding-bottom: 10px;
+}
+
+/* Labels e inputs */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Botão */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #004085;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003366;
+}
+
+/* Filtros */
+.filters {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filters label {
+    margin-right: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1em;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #004085;
+    color: #fff;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Estilo para a página de login */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #004085;
+    border-bottom: 2px solid #004085;
+    padding-bottom: 10px;
+}
+
+/* Estilo para mensagens de erro */
+.error {
+    color: red;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .logoff-button {
+        float: none;
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+}
