@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário para Gerar Arquivo Avro</title>
+</head>
+<body>
+    <form id="avroForm">
+
+        <label for="codigoAuditoriaCarteira">Código de Auditoria de Carteira:</label>
+        <input type="text" id="codigoAuditoriaCarteira" name="codigoAuditoriaCarteira" value="1"><br><br>
+
+        <label for="codigoEspecialistaDestino">Código do Especialista de Destino:</label>
+        <input type="text" id="codigoEspecialistaDestino" name="codigoEspecialistaDestino"><br><br>
+
+        <label for="codigoEspecialistaOrigem">Código do Especialista de Origem:</label>
+        <input type="text" id="codigoEspecialistaOrigem" name="codigoEspecialistaOrigem"><br><br>
+
+        <label for="codigoTipoMigracao">Código do Tipo de Migração de Carteira:</label>
+        <input type="text" id="codigoTipoMigracao" name="codigoTipoMigracao" value="2"><br><br>
+
+        <label for="descricaoMotivoMigracao">Descrição do Motivo de Migração:</label>
+        <input type="text" id="descricaoMotivoMigracao" name="descricaoMotivoMigracao" value="Reorganização de carteiras"><br><br>
+
+        <label for="numeroOperacaoCredito">Número da Operação de Crédito:</label>
+        <input type="text" id="numeroOperacaoCredito" name="numeroOperacaoCredito"><br><br>
+
+        <label for="quantidadeContrato">Quantidade do Contrato:</label>
+        <input type="text" id="quantidadeContrato" name="quantidadeContrato" value="1"><br><br>
+
+        <button type="button" onclick="generateAvro()">Gerar Arquivo Avro</button>
+    </form>
+
+    <script>
+        function generateAvro() {
+            const formData = {
+                data: {
+                    codigo_tipo_migracao_carteira: parseInt(document.getElementById('codigoTipoMigracao').value),
+                    codigo_auditoria_carteira: parseInt(document.getElementById('codigoAuditoriaCarteira').value),
+                    codigo_especialista_origem: parseInt(document.getElementById('codigoEspecialistaOrigem').value),
+                    codigo_especialista_destino: parseInt(document.getElementById('codigoEspecialistaDestino').value),
+                    quantidade_contrato: parseInt(document.getElementById('quantidadeContrato').value),
+                    descricao_motivo_migracao: document.getElementById('descricaoMotivoMigracao').value,
+                    numero_operacao_credito: document.getElementById('numeroOperacaoCredito').value
+                }
+            };
+
+            // Serialize o JSON para texto
+            const avroText = JSON.stringify([formData]);
+
+            // Baixe o arquivo .avro
+            const blob = new Blob([avroText], { type: 'application/octet-stream' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'dados.avro';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>

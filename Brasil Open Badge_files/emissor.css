@@ -1,0 +1,79 @@
+:root {
+  --cor_um: #70B819;
+}/*#8CC63F*/
+
+.content-body {
+    padding: 80px;
+}
+@media only screen and (min-width: 768px){
+	html.fixed .page-header {
+	    top: 100px;
+	}
+}
+.page-header {
+    background: var(--cor_um);
+}
+@media (min-width: 992px){
+	.header.header-nav-menu{
+	    height: 100px;
+	}
+}
+@media only screen and (min-width: 768px){
+	.header.header-nav-menu .logo {
+	    position: relative;
+	    padding: 0 20px 0 5px;
+	    height: 100px;
+	}
+}
+.userbox .profile-picture img {
+    width: auto;
+    height: 50px;
+}
+.list-unstyled {
+    margin-top: 23px;
+}
+@media (min-width: 992px){
+	.header.header-nav-menu .header-nav {
+	    margin-top: 25px;
+	}
+}
+@media only screen and (min-width: 768px){
+	.header.header-nav-menu .logo:after {
+	    height: 100px;
+	}
+}
+.userbox {
+    margin: 24px 17px 0 0;
+}
+.page-header .breadcrumbs a, .page-header .breadcrumbs span {
+    color: #ffffffa6;
+}
+
+.listao {
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #F5F5F5;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 4px;
+}
+.listao .botoes {
+    float: right;
+    margin-top: -2px;
+}
+.selupoucria-ou {
+    padding-left: 15px;
+    padding-right: 15px;
+    background: url(/img/badge-linhafundo.png);
+    background-repeat: repeat-y;
+    background-position: center;
+}
+.selupoucria-ou > span{
+	background: #ECEDF0;
+	font-size: 26px;
+    position: absolute;
+    margin-top: 60%;
+    width: 70%;
+    text-align: center;
+}
