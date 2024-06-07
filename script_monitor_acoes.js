@@ -1,83 +1,57 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const tbodyAcoes = document.getElementById('tbody-acoes');
-    const filePath = 'acoes-listadas-b3.csv';
-    let dadosAcoes = [];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ações da B3</title>
+    <link rel="stylesheet" href="styles_monitor_acoes.css">
+    <script src="auth.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Consulta de Ações</h1>
+        <button class="logoff-button" onclick="logoff()">Logoff</button>
+        <label for="ativo">Digite o código do ativo:</label>
+        <input type="text" id="ativo" placeholder="Ex: PETR4">
+        <button onclick="consultarAcao()">Consultar</button>
+        <div id="resultado"></div>
+    </div>
 
-    // Função para carregar os dados do CSV
-    async function carregarDados() {
-        const response = await fetch(filePath);
-        const data = await response.text();
-        const linhas = data.split('\n').slice(1); // Remover cabeçalho e dividir por linhas
+    <div class="container">
+        <h1>Lista de Ações da B3</h1>
+        <div class="filters">
+            <label for="var-range">Variação (%)</label>
+            <div id="var-range" class="noUiSlider"></div>
+            <div class="range-values">
+                <span id="min-value-display">-25%</span>
+                &nbsp; a &nbsp;
+                <span id="max-value-display">25%</span>
+            </div>
+        </div>
 
-        const promises = linhas.map(async (linha) => {
-            const [ativo] = linha.split(','); // Extrair o ativo da linha
+        <div class="table-container">
+            <table id="acoes-table">
+                <thead>
+                    <tr>
+                        <th>Ativo</th>
+                        <th>Logo</th>
+                        <th>Preço Atual</th>
+                        <th>Fechamento Anterior</th>
+                        <th>Variação R$</th>
+                        <th>Variação %</th>
+                        <th>Volume</th>
+                        <th>Abertura</th>
+                        <th>Regular Market Time</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-acoes"></tbody>
+            </table>
+        </div>
+    </div>
 
-            // Requisição para API com o ativo
-            const url = `https://brapi.dev/api/quote/${ativo}?token=k5Jogh6gCD1m7Ut7rUMMQ1`;
-            const resposta = await fetch(url);
-            const json = await resposta.json();
-
-            const acao = json.results[0];
-            return {
-                ativo,
-                varPercentual: parseFloat(acao.regularMarketChangePercent),
-                acao
-            };
-        });
-
-        dadosAcoes = await Promise.all(promises);
-        dadosAcoes.sort((a, b) => b.varPercentual - a.varPercentual);
-        exibirDados(dadosAcoes);
-    }
-
-    function exibirDados(dados) {
-        tbodyAcoes.innerHTML = '';
-        dados.forEach(dado => {
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-                <td>${dado.ativo}</td>
-                <td><img src="${dado.acao.logourl}" alt="${dado.acao.shortName}" width="50"></td>
-                <td>R$ ${dado.acao.regularMarketPrice}</td>
-                <td>R$ ${dado.acao.regularMarketPreviousClose}</td>
-                <td>R$ ${dado.acao.regularMarketChange}</td>
-                <td>${dado.acao.regularMarketChangePercent}%</td>
-                <td>R$ ${dado.acao.regularMarketVolume}</td>
-                <td>R$ ${dado.acao.regularMarketOpen}</td>
-                <td>${dado.acao.regularMarketTime}</td>
-            `;
-            tbodyAcoes.appendChild(newRow);
-        });
-    }
-
-    function aplicarFiltros(minValue, maxValue) {
-        const dadosFiltrados = dadosAcoes.filter(dado => dado.varPercentual >= minValue && dado.varPercentual <= maxValue);
-        exibirDados(dadosFiltrados);
-    }
-
-    // Inicializar o noUiSlider
-    const slider = document.getElementById('var-range');
-    noUiSlider.create(slider, {
-        start: [-25, 25],
-        connect: true,
-        range: {
-            'min': -25,
-            'max': 25
-        },
-        step: 0.1,
-        tooltips: [true, true],
-        format: {
-            to: value => value.toFixed(1),
-            from: value => parseFloat(value)
-        }
-    });
-
-    slider.noUiSlider.on('update', (values, handle) => {
-        const minValue = parseFloat(values[0]);
-        const maxValue = parseFloat(values[1]);
-        document.getElementById('min-value-display').textContent = `${minValue}%`;
-        document.getElementById('max-value-display').textContent = `${maxValue}%`;
-        aplicarFiltros(minValue, maxValue);
-    });
-
-    carregarDados();
-});
+    <script src="script_consulta_unica.js"></script>
+    <script src="script_monitor_acoes.js"></script>
+</body>
+</html>
