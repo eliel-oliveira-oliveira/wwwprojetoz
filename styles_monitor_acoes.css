@@ -1,3 +1,22 @@
+/* Sliders */
+#var-range {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.range-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.range-values span {
+    font-size: 1em;
+    color: #004085;
+}
+
+
+
 /* Estilo para o botão de logoff */
 .logoff-button {
     float: right;

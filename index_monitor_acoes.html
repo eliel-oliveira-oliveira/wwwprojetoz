@@ -6,6 +6,9 @@
     <title>Lista de Ações da B3</title>
     <link rel="stylesheet" href="styles_monitor_acoes.css">
     <script src="auth.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.js" defer></script>
+
 </head>
 <body>
     <div class="container">
@@ -20,13 +23,14 @@
     <div class="container">
         <h1>Lista de Ações da B3</h1>
         <div class="filters">
-            <label><input type="checkbox" value="10" class="filter"> Variação > 10%</label>
-            <label><input type="checkbox" value="5" class="filter"> Variação > 5%</label>
-            <label><input type="checkbox" value="1" class="filter"> Variação > 1%</label>
-            <label><input type="checkbox" value="-1" class="filter"> Variação < 1%</label>
-            <label><input type="checkbox" value="-5" class="filter"> Variação < 5%</label>
-            <label><input type="checkbox" value="-10" class="filter"> Variação < 10%</label>
+            <label for="var-range">Variação (%)</label>
+            <div id="var-range" class="noUiSlider"></div>
+            <div class="range-values">
+                <span id="min-value-display">-10%</span> - 
+                <span id="max-value-display">10%</span>
+            </div>
         </div>
+        
         <table id="acoes-table">
             <thead>
                 <tr>

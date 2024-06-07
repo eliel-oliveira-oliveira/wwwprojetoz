@@ -49,26 +49,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function aplicarFiltros() {
-        const filtros = Array.from(document.querySelectorAll('.filter:checked')).map(cb => parseFloat(cb.value));
-        if (filtros.length === 0) {
-            exibirDados(dadosAcoes);
-        } else {
-            const dadosFiltrados = dadosAcoes.filter(dado => {
-                return filtros.every(filtro => {
-                    if (filtro > 0) {
-                        return dado.varPercentual > filtro;
-                    } else {
-                        return dado.varPercentual < Math.abs(filtro);
-                    }
-                });
-            });
-            exibirDados(dadosFiltrados);
-        }
+    function aplicarFiltros(minValue, maxValue) {
+        const dadosFiltrados = dadosAcoes.filter(dado => dado.varPercentual >= minValue && dado.varPercentual <= maxValue);
+        exibirDados(dadosFiltrados);
     }
 
-    document.querySelectorAll('.filter').forEach(cb => {
-        cb.addEventListener('change', aplicarFiltros);
+    // Inicializar o noUiSlider
+    const slider = document.getElementById('var-range');
+    noUiSlider.create(slider, {
+        start: [-10, 10],
+        connect: true,
+        range: {
+            'min': -10,
+            'max': 10
+        },
+        step: 0.1,
+        tooltips: [true, true],
+        format: {
+            to: value => value.toFixed(1),
+            from: value => parseFloat(value)
+        }
+    });
+
+    slider.noUiSlider.on('update', (values, handle) => {
+        const minValue = parseFloat(values[0]);
+        const maxValue = parseFloat(values[1]);
+        document.getElementById('min-value-display').textContent = `${minValue}%`;
+        document.getElementById('max-value-display').textContent = `${maxValue}%`;
+        aplicarFiltros(minValue, maxValue);
     });
 
     carregarDados();
