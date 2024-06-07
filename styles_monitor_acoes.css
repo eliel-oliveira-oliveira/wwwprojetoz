@@ -15,8 +15,6 @@
     color: #004085;
 }
 
-
-
 /* Estilo para o botão de logoff */
 .logoff-button {
     float: right;
@@ -193,4 +191,53 @@ tbody tr:nth-child(odd) {
     .filters {
         flex-direction: column;
     }
+
+    /* Tabela responsiva */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin: 0 0 1rem 0;
+    }
+
+    tr:nth-child(odd) {
+        background: none;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+    }
+
+    td:before {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        transform: translateY(-50%);
+        font-weight: bold;
+        color: #004085;
+    }
+
+    td:nth-of-type(1):before { content: "Ativo"; }
+    td:nth-of-type(2):before { content: "Logo"; }
+    td:nth-of-type(3):before { content: "Preço Atual"; }
+    td:nth-of-type(4):before { content: "Fechamento Anterior"; }
+    td:nth-of-type(5):before { content: "Variação R$"; }
+    td:nth-of-type(6):before { content: "Variação %"; }
+    td:nth-of-type(7):before { content: "Volume"; }
+    td:nth-of-type(8):before { content: "Abertura"; }
+    td:nth-of-type(9):before { content: "Regular Market Time"; }
 }

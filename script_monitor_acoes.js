@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializar o noUiSlider
     const slider = document.getElementById('var-range');
     noUiSlider.create(slider, {
-        start: [-10, 10],
+        start: [-25, 25],
         connect: true,
         range: {
-            'min': -10,
-            'max': 10
+            'min': -25,
+            'max': 25
         },
         step: 0.1,
         tooltips: [true, true],
